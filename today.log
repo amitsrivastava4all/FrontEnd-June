@@ -1,0 +1,304 @@
+var a;
+undefined
+typeof a;
+"undefined"
+a= 100;
+100
+typeof a;
+"number"
+var b = 200;
+undefined
+a + b;
+300
+b = "200";
+"200"
+typeof b;
+"string"
+typeof a;
+"number"
+a + b;
+"100200"
+a - b;
+-100
+a * b;
+20000
+a /b;
+0.5
+a **b;
+Infinity
+2 ** 3
+8
+a + b;
+"100200"
+a + parseInt(b);
+300
+b = "10.20";
+"10.20"
+parseFloat(b);
+10.2
+parseInt(b);
+10
+a;
+100
+a + undefined;
+NaN
+a + b;
+"10010.20"
+b = "Hello";
+"Hello"
+a + b;
+"100Hello"
+a  - b;
+NaN
+b = "Hello";
+"Hello"
+parseInt(b);
+NaN
+typeof b;
+"string"
+var c = parseInt(b);
+undefined
+typeof c;
+"number"
+c;
+NaN
+var d = 100/0;
+undefined
+f;
+VM649:1 Uncaught ReferenceError: f is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM649:1
+d;
+Infinity
+typeof d;
+"number"
+isFinite(d);
+false
+isFinite(d)?"Result is there ":"Result is Infinite";
+"Result is Infinite"
+var e = 100- "Amit";
+undefined
+e;
+NaN
+isNaN(e);
+true
+parseInt("1000") + parseInt("2000");
+3000
+parseInt("1000") + parseInt("Ram");
+NaN
+parseInt("100");
+100
+parseInt("one");
+NaN
+100 + NaN;
+NaN
+10>2;
+true
+10>2?"Hello":"Hi";
+"Hello"
+10>200?"Hello":"Hi";
+"Hi"
+Number("100");
+100
+Number("one");
+NaN
+Number("100.20");
+100.2
+var d = "Hello";
+undefined
+d = 'H';
+"H"
+d = "Let's do It ";
+"Let's do It "
+d = "Let's do It ";
+"Let's do It "
+typeof d;
+"string"
+a = 100;
+100
+a + true;
+101
+var d= [10,20,30,40,50];
+undefined
+var d= [10,20,30,40,50, "Hello",true];
+undefined
+d.length;
+7
+typeof d;
+"object"
+d instanceof Array;
+true
+class Emp{
+}
+undefined
+typeof Emp;
+"function"
+var e= [10,20,30,40,50];
+undefined
+typeof e;
+"object"
+e instanceof Array;
+true
+typeof Array;
+"function"
+e.push(100);
+6
+e;
+(6) [10, 20, 30, 40, 50, 100]
+e.splice(1,1);
+[20]
+e;
+(5) [10, 30, 40, 50, 100]
+e.splice(1,2);
+(2) [30, 40]
+e;
+(3) [10, 50, 100]
+for(let i = 0 ; i<e.length; i++){
+console.log("I is "+i);
+}
+VM2935:2 I is 0
+VM2935:2 I is 1
+VM2935:2 I is 2
+undefined
+for(let i = 0 ; i<e.length; i++){
+console.log("Arr is "+e[i]);
+}
+VM2955:2 Arr is 10
+VM2955:2 Arr is 50
+VM2955:2 Arr is 100
+undefined
+i;
+VM2985:1 Uncaught ReferenceError: i is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM2985:1
+function show(){
+// var r;
+console.log("R is "+r);
+if(10>2){
+var r = 100;
+}
+console.log("R is "+r);
+}
+undefined
+show();
+VM3136:3 R is undefined
+VM3136:7 R is 100
+undefined
+function showA(){
+// var r;
+console.log("R is "+r);
+if(10>2){
+let r = 100;
+}
+console.log("R is "+r);
+}
+undefined
+showA();
+VM3282:3 Uncaught ReferenceError: r is not defined
+    at showA (<anonymous>:3:21)
+    at <anonymous>:1:1
+showA @ VM3282:3
+(anonymous) @ VM3289:1
+function display(){
+rr = 100;
+console.log("RR "+rr);
+}
+undefined
+display();
+VM3390:3 RR 100
+undefined
+rr;
+100
+var ee = [10,90,20,1,9,0];
+undefined
+var search = 10;
+undefined
+function doSearch(currentElement){
+return currentElement == search;
+}
+var subArray = ee.filter(doSearch);
+undefined
+subArray;
+[10]
+search=99999;
+99999
+function doSearch(currentElement){
+return currentElement == search;
+}
+var subArray = ee.filter(doSearch);
+undefined
+subArray;
+[]
+search = 20;
+function doSearch(currentElement){
+return currentElement > search;
+}
+var subArray = ee.filter(doSearch);
+20
+subArray;
+[90]
+ee;
+(6) [10, 90, 20, 1, 9, 0]
+search= 10;
+10
+search = 20;
+function doSearch(currentElement){
+return currentElement > search;
+}
+var subArray = ee.filter(doSearch);
+20
+search = 10;
+function doSearch(currentElement){
+return currentElement > search;
+}
+var subArray = ee.filter(doSearch);
+10
+subArray;
+(2) [90, 20]
+ee.filter(currentElement>search);
+VM4592:1 Uncaught ReferenceError: currentElement is not defined
+    at <anonymous>:1:11
+(anonymous) @ VM4592:1
+ee.filter(search);
+VM4608:1 Uncaught TypeError: 10 is not a function
+    at Array.filter (<anonymous>)
+    at <anonymous>:1:4
+(anonymous) @ VM4608:1
+function myLoop(fn){
+for(let i = 1; i<=10; i++){
+fn(i);
+}
+}
+undefined
+function evenOdd(x){
+console.log(x%2==0?"Even No "+x:"Odd No "+x);
+}
+undefined
+function cube(currentElement){
+console.log(currentElement*currentElement*currentElement);
+}
+undefined
+myLoop(cube);
+VM5247:2 1
+VM5247:2 8
+VM5247:2 27
+VM5247:2 64
+VM5247:2 125
+VM5247:2 216
+VM5247:2 343
+VM5247:2 512
+VM5247:2 729
+VM5247:2 1000
+undefined
+myLoop(evenOdd);
+VM5186:2 Odd No 1
+VM5186:2 Even No 2
+VM5186:2 Odd No 3
+VM5186:2 Even No 4
+VM5186:2 Odd No 5
+VM5186:2 Even No 6
+VM5186:2 Odd No 7
+VM5186:2 Even No 8
+VM5186:2 Odd No 9
+VM5186:2 Even No 10
+undefined
