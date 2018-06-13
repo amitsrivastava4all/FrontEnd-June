@@ -1,0 +1,224 @@
+var ee = [10,90,20,1,9,0];
+undefined
+function logic(currentValue){
+return currentValue==20;
+}
+var result = ee.filter(logic);
+undefined
+result;
+[20]
+ee;
+(6) [10, 90, 20, 1, 9, 0]
+function printing(currentValue){
+console.log("Current Value is "+currentValue);
+}
+                   
+ee.forEach(printing);
+VM596:2 Current Value is 10
+VM596:2 Current Value is 90
+VM596:2 Current Value is 20
+VM596:2 Current Value is 1
+VM596:2 Current Value is 9
+VM596:2 Current Value is 0
+undefined
+var myfunction = function(){
+console.log("I am a Anonymous Function....");
+}
+undefined
+typeof myfunction;
+"function"
+myfunction();
+VM986:2 I am a Anonymous Function....
+undefined
+function test(){
+return myfunction;
+}
+undefined
+var x = test();
+undefined
+typeof x;
+"function"
+x;
+ƒ (){
+console.log("I am a Anonymous Function....");
+}
+x();
+VM986:2 I am a Anonymous Function....
+undefined
+test()();
+VM986:2 I am a Anonymous Function....
+undefined
+function register(){
+var msg = "success";
+console.log("Register Going On....");
+var login = function(){
+console.log(" Login Going ON ");
+}
+var error = function(){
+console.log("Error During Register ");
+}
+return msg=='success'?login:error;
+}
+undefined
+register()();
+VM1675:3 Register Going On....
+VM1675:5  Login Going ON 
+undefined
+function register(){
+var msg = "fail";
+console.log("Register Going On....");
+var login = function(){
+console.log(" Login Going ON ");
+}
+var error = function(){
+console.log("Error During Register ");
+}
+return msg=='success'?login:error;
+}
+undefined
+register()();
+VM1715:3 Register Going On....
+VM1715:8 Error During Register 
+undefined
+function register(){
+var msg = "fail";
+console.log("Register Going On....");
+var login = function(){
+console.log(" Login Going ON ");
+}
+var shop = function(){
+console.log("Shop going on ");
+}
+var error = function(){
+console.log("Error During Register ");
+}
+return msg=='success'?[login,shop]:error;
+}
+undefined
+function register(){
+var msg = "success";
+console.log("Register Going On....");
+var login = function(){
+console.log(" Login Going ON ");
+}
+var shop = function(){
+console.log("Shop going on ");
+}
+var error = function(){
+console.log("Error During Register ");
+}
+return msg=='success'?[login,shop]:error;
+}
+undefined
+var x = register();
+VM2752:3 Register Going On....
+undefined
+x;
+(2) [ƒ, ƒ]0: ƒ ()arguments: nullcaller: nulllength: 0name: "login"prototype: {constructor: ƒ}constructor: ƒ ()__proto__: Object__proto__: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()__proto__: Object[[FunctionLocation]]: <unknown>[[Scopes]]: Scopes[0][[FunctionLocation]]: VM2752:4[[Scopes]]: Scopes[1]1: ƒ ()arguments: nullcaller: nulllength: 0name: "shop"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM2752:7[[Scopes]]: Scopes[1]length: 2__proto__: Array(0)
+function register(){
+var msg = "success";
+console.log("Register Going On....");
+var login = function Login(){
+console.log(" Login Going ON ");
+}
+var shop = function Shop(){
+console.log("Shop going on ");
+}
+var error = function(){
+console.log("Error During Register ");
+}
+return msg=='success'?[login,shop]:error;
+}
+undefined
+var x = register();
+VM2994:3 Register Going On....
+undefined
+x;
+(2) [ƒ, ƒ]0: ƒ Login()1: ƒ Shop()length: 2__proto__: Array(0)
+function add(x,y){
+return x + y;
+}
+undefined
+var adder = (x,y)=>x+y;
+undefined
+typeof adder;
+"function"
+adder(100,200);
+300
+var add1 = (a,b)=>{
+console.log(`A is ${a} 
+and b is ${b} 
+and result is `);
+return a + b;
+}
+undefined
+typeof add1;
+"function"
+add1(100,200);
+VM3555:2 A is 100 
+and b is 200 
+and result is 
+300
+var add1 = (a,b)=>{
+console.log(`A is ${a} 
+and b is ${b} 
+and result is `);
+return a + b;
+}
+undefined
+var ee = [10,20,30,40,50];
+undefined
+ee.filter(currentValue=>currentValue>30);
+(2) [40, 50]
+ee.forEach(currentValue => console.log(`Current Value is ${currentValue}`));
+VM3920:1 Current Value is 10
+VM3920:1 Current Value is 20
+VM3920:1 Current Value is 30
+VM3920:1 Current Value is 40
+VM3920:1 Current Value is 50
+undefined
+ee.forEach((currentValue,index) => console.log(`Current Value is ${currentValue} and Index is ${index}`));
+VM3999:1 Current Value is 10 and Index is 0
+VM3999:1 Current Value is 20 and Index is 1
+VM3999:1 Current Value is 30 and Index is 2
+VM3999:1 Current Value is 40 and Index is 3
+VM3999:1 Current Value is 50 and Index is 4
+undefined
+ee.forEach((currentValue,index,arr) => console.log(`Current Value is ${currentValue} and Index is ${index} and arr is ${arr}`));
+VM4034:1 Current Value is 10 and Index is 0 and arr is 10,20,30,40,50
+VM4034:1 Current Value is 20 and Index is 1 and arr is 10,20,30,40,50
+VM4034:1 Current Value is 30 and Index is 2 and arr is 10,20,30,40,50
+VM4034:1 Current Value is 40 and Index is 3 and arr is 10,20,30,40,50
+VM4034:1 Current Value is 50 and Index is 4 and arr is 10,20,30,40,50
+undefined
+ee;
+(5) [10, 20, 30, 40, 50]
+var ff = ee.map(currentValue=>currentValue**3);
+undefined
+ff;
+(5) [1000, 8000, 27000, 64000, 125000]
+ee;
+(5) [10, 20, 30, 40, 50]
+var bb  = [1,9,100,2,20,90,3];
+undefined
+bb.sort((first,second)=>first-second);
+(7) [1, 2, 3, 9, 20, 90, 100]
+bb.sort((first,second)=>second-first);
+(7) [100, 90, 20, 9, 3, 2, 1]
+var cc = ["anil","sunil","ajay","vijay"];
+undefined
+"anil".localeCompare("sunil");
+-1
+"sunil".localeCompare("sunil");
+0
+"sunil".localeCompare("anil");
+1
+cc.sort((first,second)=>first.localCompare(second));
+VM4716:1 Uncaught TypeError: first.localCompare is not a function
+    at cc.sort (<anonymous>:1:31)
+    at Array.sort (native)
+    at <anonymous>:1:4
+cc.sort @ VM4716:1
+(anonymous) @ VM4716:1
+cc.sort((first,second)=>first.localeCompare(second));
+(4) ["ajay", "anil", "sunil", "vijay"]
