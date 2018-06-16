@@ -1,0 +1,120 @@
+setTimeout(()=>{
+console.log("Inside Timeout",
+},1000);
+VM177:3 Uncaught SyntaxError: Unexpected token }
+setTimeout(()=>{
+console.log("Inside Timeout");
+},1000);
+1
+VM195:2 Inside Timeout
+setTimeout(()=>{
+console.log("Inside Timeout");
+},3000);
+2
+VM205:2 Inside Timeout
+console.log("First Line of Code to Be Execute ");
+setTimeout(()=>{
+console.log("Inside Timeout");
+},3000);
+console.log("After TimeOut Call ");
+var a =100;
+var b = 200;
+var c = a+ b;
+console.log("C is ",c);
+VM323:1 First Line of Code to Be Execute 
+VM323:5 After TimeOut Call 
+VM323:9 C is  300
+undefined
+VM323:3 Inside Timeout
+console.log("First Line of Code to Be Execute ");
+var d = setTimeout(()=>{
+console.log("Inside Timeout");
+return 1000;
+},3000);
+console.log("Set TimeOut Return Value ",d);
+console.log("After TimeOut Call ");
+var a =100;
+var b = 200;
+var c = a+ b;
+console.log("C is ",c);
+VM1248:1 First Line of Code to Be Execute 
+VM1248:6 Set TimeOut Return Value  4
+VM1248:7 After TimeOut Call 
+VM1248:11 C is  300
+undefined
+VM1248:3 Inside Timeout
+typeof Promise;
+"function"
+function asyncExample(resolve,reject){
+setTimeout(()=>{
+var isNice = true;
+console.log("Prepare Pizza  Take Some time....")
+console.log("Pizza Done...");
+if(isNice){
+resolve("Pack It and Return It ");
+}
+else{
+reject("Can't Deliever ");
+}
+},7000);
+}
+undefined
+var pr = new Promise(asyncExample);
+undefined
+pr;
+Promise {<pending>}
+VM2076:4 Prepare Pizza  Take Some time....
+VM2076:5 Pizza Done...
+pr;
+Promise {<resolved>: "Pack It and Return It "}
+pr.then(data=>console.log("Data is ",data)).catch(err=>console.log("Error is ",err));
+VM2218:1 Data is  Pack It and Return It 
+Promise {<resolved>: undefined}
+function callMeBack(data){
+	console.log("Data Is ",data);
+}
+console.log("First Line of Code to Be Execute ");
+var d = setTimeout(()=>{
+console.log("Inside Timeout");
+callMeBack(1000);
+//return 1000;
+},3000);
+console.log("Set TimeOut Return Value ",d);
+console.log("After TimeOut Call ");
+var a =100;
+var b = 200;
+var c = a+ b;
+console.log("C is ",c);
+VM2975:4 First Line of Code to Be Execute 
+VM2975:10 Set TimeOut Return Value  6
+VM2975:11 After TimeOut Call 
+VM2975:15 C is  300
+undefined
+VM2975:6 Inside Timeout
+VM2975:2 Data Is  1000
+function async cube(x){
+var pr = new Promise((resolve, reject)=>{
+setTimeout(()=>resolve(x*x*x),5000);
+});
+return pr;
+}
+VM3115:1 Uncaught SyntaxError: Unexpected identifier
+async function  cube(x){
+var pr = new Promise((resolve, reject)=>{
+setTimeout(()=>resolve(x*x*x),5000);
+});
+return pr;
+}
+undefined
+cube(3).then(data=>console.log("data is "+data));
+Promise {<pending>}
+VM3315:1 data is 27
+async function total(){
+return await cube(3) + await cube(2) + await cube(5);
+}
+undefined
+total().then(sum=>console.log("total is ",sum)):
+VM3503:1 Uncaught SyntaxError: Unexpected token :
+total().then(sum=>console.log("total is ",sum));
+Promise {<pending>}
+VM3519:1 total is  160
