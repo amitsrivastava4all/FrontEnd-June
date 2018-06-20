@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom/design.css">
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script src="js/custom/utils/util.js"></script>
+    <script src="js/custom/config.js"></script>
+    <script src="js/custom/models/user.js"></script>
+    <script src="js/custom/models/useroperations.js"></script>
+    <script src="js/custom/controllers/usercontroller.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <a id="login" class="btn btn-primary">Login</a>
+        <a class="btn btn-success" href="">Register</a>
+        <div id="loginDiv" class="well">
+            <h1>Login Form</h1>
+            <h2 id="message"></h2>
+            <div class="form-group">
+                <label for="">Userid</label>
+                <input id="useridtxt" type="text" class="form-control" placeholder="Type Userid Here">
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <input id="passwordtxt" type="password" class="form-control" placeholder="Type Password Here">
+            </div>
+            <div class="form-group">
+                <button id="loginBt" class="btn btn-primary">Login</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
