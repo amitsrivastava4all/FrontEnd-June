@@ -1,0 +1,17 @@
+.red {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+    cursor: pointer;
+    display: inline;
+}
+
+.green {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: green;
+    cursor: pointer;
+    display: inline;
+}
