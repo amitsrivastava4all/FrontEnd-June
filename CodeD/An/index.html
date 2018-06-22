@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="libs/angular.min.js"></script>
+    <style>
+        .size {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .red {
+            color: red;
+        }
+        
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-app>
+        <ul>
+            <li ng-repeat="product in ['Nokia','LG','Apple']">
+                {{product}}
+            </li>
+
+        </ul>
+        <hr> Print Mobiles
+        <br>
+        <ul ng-init='mobiles={"mobiles":[{"id":1001,"name":"Samsung Mobile","price":30000,"url":"http://c2c.sulekhalive.com/lcproducts/mobiles/images/samsung/album/large/samsung-z3(2).jpg"},{"id":1002,"name":"Apple Mobile","price":40000,"url":"https://4.imimg.com/data4/LY/WP/GLADMIN-8934545/apple-mobiles-500x500.jpg"},{"id":1003,"name":"Lg Mobile","price":20000,"url":"http://www.lg.com/uk/images/mobile-phones/MD05609550/stylus-350.jpg"},{"id":1004,"name":"MI Mobile","price":10000,"url":"https://www.91-img.com/pictures/xiaomi-mi-5s-mobile-phone-large-1.jpg"}]}'>
+            <li ng-repeat="mobile in mobiles.mobiles">
+                {{mobile.id}} {{mobile.name}} {{mobile.price}}
+                <img class='size' ng-src="{{mobile.url}}"> </li>
+        </ul>
+        <input type="checkbox" ng-init="showme=false" ng-model="showme"> CheckBox Value is {{showme}}
+        <div ng-show="showme">
+            <input type='text' ng-init="price=0" ng-model="price" placeholder='Type Price'> &nbsp; Price is {{price|currency:'&#8377;'}}
+            <br>
+            <input type='text' ng-init="quantity=0" ng-model="quantity" placeholder='Type Quantity'> Quantity is {{quantity}}
+            <h3 ng-class="{'green':(price*quantity)>=10000,'red':(price*quantity)<10000}">Amount is {{price*quantity}}</h3>
+            <div>
+                <input ng-model="name" type="text" placeholder="Type Name"> Your Name is {{name|uppercase}}
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
