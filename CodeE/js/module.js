@@ -1,0 +1,1 @@
+const app2 = angular.module("logicapp",[]);
