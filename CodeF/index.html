@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul>li {
+            display: inline;
+            padding: 20px;
+        }
+        
+        a {
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/homecontroller.js"></script>
+    <script src="js/routes.js"></script>
+</head>
+
+<body ng-app="spa">
+    <nav>
+        <ul>
+            <li><a ng-href="#/">Home</a></li>
+            <li><a ng-href="#/login/Welcome">Login</a></li>
+            <li><a ng-href="#/register">Register</a></li>
+            <li><a ng-href="#/products">Products</a></li>
+            <li><a ng-href="#/offers">Offers</a></li>
+            <li><a ng-href="#/news">News</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+    <ng-view></ng-view>
+
+
+    <br>
+    <br>
+    <br>
+    <hr>
+    <h3>This is Footer</h3>
+</body>
+
+</html>

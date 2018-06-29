@@ -1,0 +1,196 @@
+function whoAmI(){
+console.log("I am ",this.name);
+}
+undefined
+name = "Amit";
+"Amit"
+window.name;
+"Amit"
+window.whoAmI;
+ƒ whoAmI(){
+console.log("I am ",this.name);
+}
+whoAmI(); // window.whoAmI();
+VM89:2 I am  Amit
+undefined
+var object = {name:"Ram"};
+undefined
+whoAmI(); 
+VM89:2 I am  Amit
+undefined
+console.dir(whoAmI);
+VM315:1 ƒ whoAmI()arguments: nullcaller: nulllength: 0name: "whoAmI"prototype: {constructor: ƒ}__proto__: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()__proto__: Object[[FunctionLocation]]: <unknown>[[Scopes]]: Scopes[0][[FunctionLocation]]: VM89:1[[Scopes]]: Scopes[1]
+undefined
+whoAmI().apply(object);
+VM89:2 I am  Amit
+VM368:1 Uncaught TypeError: Cannot read property 'apply' of undefined
+    at <anonymous>:1:9
+(anonymous) @ VM368:1
+whoAmI.apply(object);
+VM89:2 I am  Ram
+undefined
+window.whoAmI.apply(object);
+VM89:2 I am  Ram
+undefined
+object;
+{name: "Ram"}
+function whoAmI(job,city){
+console.log("I am ",this.name," Job is ",job, "City is ",city);
+}
+undefined
+window.whoAmI('Trainer', 'Delhi');
+VM587:2 I am  Amit  Job is  Trainer City is  Delhi
+undefined
+whoAmI.apply(object,['Trainer','Mumbai']);
+VM587:2 I am  Ram  Job is  Trainer City is  Mumbai
+undefined
+whoAmI.call(object,'Trainer','Mumbai');
+VM587:2 I am  Ram  Job is  Trainer City is  Mumbai
+undefined
+var s = whoAmI.bind(object);
+undefined
+s
+ƒ whoAmI(job,city){
+console.log("I am ",this.name," Job is ",job, "City is ",city);
+}
+typeof s;
+"function"
+s('Shyam','Coder');
+VM587:2 I am  Ram  Job is  Shyam City is  Coder
+undefined
+var button = {id:1,name:'Login',addEventListener(){
+console.log("This is of Add Event Listener", this); 
+}};
+undefined
+button.addEventListener();
+VM1238:2 This is of Add Event Listener {id: 1, name: "Login", addEventListener: ƒ}addEventListener: ƒ addEventListener()arguments: (...)caller: (...)length: 0name: "addEventListener"__proto__: ƒ ()[[FunctionLocation]]: VM1238:1[[Scopes]]: Scopes[1]id: 1name: "Login"__proto__: Object
+undefined
+var button = {id:1,name:'Login',addEventListener(eventName, fn){
+console.log("This is of Add Event Listener", this); 
+}};
+undefined
+var button = {id:1,name:'Login',addEventListener(eventName, fn){
+console.log("This is of Add Event Listener", this, "Event ",event," Function ", fn); 
+}};
+undefined
+button.addEventListener("click",()=>console.log("My function "));
+VM1317:2 This is of Add Event Listener {id: 1, name: "Login", addEventListener: ƒ} Event  undefined  Function  ()=>console.log("My function ")
+undefined
+var button = {id:1,name:'Login',addEventListener(eventName, fn){
+console.log("This is of Add Event Listener", this, "Event ",eventName," Function ", fn); 
+}};
+undefined
+button.addEventListener("click",()=>console.log("My function "));
+VM1358:2 This is of Add Event Listener {id: 1, name: "Login", addEventListener: ƒ} Event  click  Function  ()=>console.log("My function ")
+undefined
+var button = {id:1,name:'Login',addEventListener(eventName, fn){
+console.log("This is of Add Event Listener", this, "Event ",eventName," Function ", fn); 
+var buttonEventFn = fn.bind(this);
+buttonEventFn();
+}};
+undefined
+button.addEventListener("click",()=>{
+console.log("This is ", this, "Id is ", this.id ," Name is ",this.name);
+})
+VM1427:2 This is of Add Event Listener {id: 1, name: "Login", addEventListener: ƒ} Event  click  Function  ()=>{
+console.log("This is ", this, "Id is ", this.id ," Name is ",this.name);
+}
+VM1486:2 This is  Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …} Id is  undefined  Name is  Amit
+undefined
+button.addEventListener("click",function (){
+console.log("This is ", this, "Id is ", this.id ," Name is ",this.name);
+})
+VM1427:2 This is of Add Event Listener {id: 1, name: "Login", addEventListener: ƒ} Event  click  Function  ƒ (){
+console.log("This is ", this, "Id is ", this.id ," Name is ",this.name);
+}
+VM1559:2 This is  {id: 1, name: "Login", addEventListener: ƒ} Id is  1  Name is  Login
+undefined
+var obj = {
+arr:[10,20,30,9,7],
+arr2:[],
+subArray(){
+this.arr.forEach(function(element){
+if(element%2==0){
+this.arr2.push(element);
+}
+})
+}
+}
+undefined
+obj.arr;
+(5) [10, 20, 30, 9, 7]
+obj.arr2
+[]
+obj.subArray();
+VM2105:7 Uncaught TypeError: Cannot read property 'push' of undefined
+    at <anonymous>:7:11
+    at Array.forEach (<anonymous>)
+    at Object.subArray (<anonymous>:5:10)
+    at <anonymous>:1:5
+(anonymous) @ VM2105:7
+subArray @ VM2105:5
+(anonymous) @ VM2143:1
+var obj = {
+arr:[10,20,30,9,7],
+arr2:[],
+subArray(){
+var that = this;
+this.arr.forEach(function(element){
+if(element%2==0){
+that.arr2.push(element);
+}
+})
+}
+}
+undefined
+obj.subArray();
+undefined
+obj.arr;
+(5) [10, 20, 30, 9, 7]
+obj.arr2;
+(3) [10, 20, 30]
+var obj = {
+arr:[10,20,30,9,7],
+arr2:[],
+subArray(){
+
+this.arr.forEach(element=>{
+if(element%2==0){
+this.arr2.push(element);
+}
+})
+}
+}
+undefined
+obj.subArray();
+undefined
+obj.arr2;
+(3) [10, 20, 30]
+function add(x,y){
+return x + y;
+}
+undefined
+add(100,200);
+300
+function Employee(id , name , salary){
+this.id = id;
+this.name = name;
+this.salary = salary;
+}
+undefined
+var x = new Employee(10,'Ram',9999);
+undefined
+xl
+VM3545:1 Uncaught ReferenceError: xl is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM3545:1
+x;
+Employee {id: 10, name: "Ram", salary: 9999}
+typeof x;
+"object"
+x instanceof Employee;
+true
+x.id;
+10
+x.name;
+"Ram"
