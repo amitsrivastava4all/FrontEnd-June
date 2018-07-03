@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="libs/angular.min.js"></script>
+    <script>
+        const app = angular.module("myapp", []);
+        app.controller("myctrl", ($scope) => {
+            $scope.validateIt = (flag, emailflag) => {
+                if (flag && emailflag) {
+                    alert("Form Submit....")
+                } else {
+                    if (!emailflag) {
+                        $scope.errorResult = 'Invalid Email ';
+                    }
+                    alert("Invalid Form , Please fill the fields.")
+                }
+            }
+
+        })
+    </script>
+    <style>
+        input.ng-invalid {
+            border-color: red;
+        }
+        
+        input.ng-valid {
+            border-color: lightgreen;
+        }
+        
+        .error {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body ng-app="myapp" ng-controller="myctrl">
+    <h1>
+        {{errorResult}}
+    </h1>
+    <form name="form1" ng-submit="validateIt(form1.$valid,form1.email.$valid)" novalidate>
+        <input ng-model="uname" name="uname" type="text" placeholder="Type Name Here" required>
+        <span ng-show="form1.uname.$touched && form1.uname.$pristine" class="error">Userid Can't Be Empty !</span>
+        <br>
+        <input ng-model="email" name="email" type="email" placeholder="Type Email Here" required>
+        <span ng-show="form1.email.$touched && form1.email.$invalid && form1.email.$error['required'] " class="error">Email Can't Be Empty !</span>
+        <span ng-show="form1.email.$touched && form1.email.$dirty && form1.email.$invalid && form1.email.$error['email']" class="error">Email Format is InCorrect !</span>
+
+        <br>
+        <input ng-model="creditcard" name="creditcard" type="text" placeholder="Type Credit Card Number" title="Invalid Credit Card Number" required pattern="[a-z]{3}[0-9]{2}">
+        <br> Form is {{form1.$valid}}
+        <button type="submit">Register</button>
+    </form>
+</body>
+
+</html>
