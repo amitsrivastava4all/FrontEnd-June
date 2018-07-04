@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="libs/angular.min.js"></script>
+    <script>
+        const app = angular.module("myapp", []);
+        //app.controller("ctrlname",[orgname, fn])
+
+        app.controller("myctrl", ['$scope', '$http', (a, myhttp) => {
+            a.reg = {};
+            console.log("Controller Loaded... ", a.reg);
+
+            $scope.doRegister = function() {
+                //console.log("do doRegister");
+                var url = "";
+                console.log("Reg is ", a.reg);
+                // $http.post(url,reg);
+            }
+        }]);
+    </script>
+</head>
+
+<body ng-app="myapp" ng-controller="myctrl">
+    <form>
+        <input type="text" ng-model="reg.name" placeholder="Type Name">
+        <input type="text" ng-model="reg.age" placeholder="Type Age">
+        <input type="text" ng-model="reg.address" placeholder="Type Address">
+        <button ng-click="doRegister()">Register</button>
+
+    </form>
+</body>
+
+</html>
