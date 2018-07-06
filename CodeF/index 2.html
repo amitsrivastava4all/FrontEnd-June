@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script>
+        const app = angular.module("myapp", []);
+        app.run(() => {
+            console.log("Run Call");
+        });
+        app.config(() => {
+            console.log("Config Run...");
+        })
+        app.controller("myctrl", ($scope) => {
+            $scope.$watch('firstnumber', (oldValue, newValue) => {
+                if (oldValue != newValue) {
+                    console.log("First NUmber Modified ", oldValue, newValue);
+                }
+            });
+            $scope.show = () => {
+                var element = angular.element(document.querySelector("#msg"));
+                console.log("Element is ", element[0].innerHTML);
+            }
+            var count = 1;
+            const docount = () => {
+                count++;
+                $scope.$apply(() => {
+                    $scope.result = count;
+                    console.log("Apply called...");
+                })
+
+            }
+            const init = () =>
+
+                document.querySelector("#bt").addEventListener("click", docount);
+
+            init();
+
+            $scope.$watch(() => {
+                console.log("Watch Called...");
+            })
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <p id="msg">Hello </p>
+    <div ng-app="myapp" ng-controller="myctrl">
+        <button ng-click="show()">Get P Value</button>
+        <input type="text" ng-model="firstnumber">
+        <p>Show Count is {{result}}</p>
+    </div>
+    <hr>
+    <div>
+        <button id="bt">Update Count</button>
+    </div>
+</body>
+
+</html>
