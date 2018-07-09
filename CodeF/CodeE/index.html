@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+        .map {
+            width: 200px;
+            height: 200px;
+            border-color: black;
+            border-style: solid;
+            border-width: 2px;
+        }
+    </style>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="factory.js"></script>
+    <script src="controller.js"></script>
+    <script src="gps.js"></script>
+
+
+
+    <script src="dir.js"></script>
+
+</head>
+
+<body ng-app="myapp">
+
+    <show-gps></show-gps>
+    <!-- <tcs_address></tcs_address>
+    <tcs:address></tcs:address> -->
+
+    <!-- <div tcs-tax></div> -->
+    <div ng-controller="myctrl">
+        <tcs-address></tcs-address>
+        <!-- <div tcs-address>
+        </div>     -->
+        <tcs-tax salary="10000"></tcs-tax>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX7v4Q7IiyMjo1M9JDDbWvpCrkiiOxFZM&callback=initMap" type="text/javascript"></script>
+</body>
+
+</html>

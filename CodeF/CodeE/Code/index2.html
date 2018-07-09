@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.min.js"></script>
+    <!--<script src="angular/i18n/angular-locale_en-us.js"></script>
+    <script src="angular/i18n/angular-locale_hi-in.js"></script>-->
+    <script src="tmhDynamicLocale.min.js"></script>
+    <script>
+        //https://github.com/angular/bower-angular-i18n
+        var app = angular.module('myApp', ['tmh.dynamicLocale']);
+        app.controller("ctrl", function($scope, tmhDynamicLocale) {
+            $scope.today = new Date();
+            $scope.salary = 999921;
+            $scope.change = (key) => {
+                tmhDynamicLocale.set(key);
+
+                // $scope.name = $amit.name;
+            }
+        });
+        // app.factory("$amit", () => {
+        //     return {
+        //         name: 'Amit'
+        //     };
+        // })
+    </script>
+</head>
+
+<body ng-app="myApp" ng-controller="ctrl">
+    <button ng-click="change('hi-in')">Hindi</button>
+    <button ng-click="change('en-us')">English</button>
+    <button ng-click="change('es-es')">Spanish</button>
+    <h3>Name is {{name}}</h3>
+    <h2>dynamic locale example</h2>
+    {{today|date:'fullDate'}}
+    <br> {{salary|currency}} Your Balance is {{salary}}
+</body>
+
+</html>

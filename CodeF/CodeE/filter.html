@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script>
+        const app = angular.module("myapp", []);
+        app.controller("ctrl", ($scope, $filter) => {
+
+        })
+        app.filter("titlecase", function() {
+            // console.log("Str is ", str);
+            return function(str, arg) {
+                console.log("Str is ", str);
+                if (str.trim().length == 0) {
+                    return "";
+                }
+                return arg + " " + str.charAt(0).toUpperCase() + str.substring(1).toLowerCase();
+            }
+        })
+    </script>
+</head>
+
+<body ng-app="myapp">
+    <input type="text" ng-init="name=''" ng-model="name"> {{name|uppercase}}
+    <br> {{name|titlecase:'Mr'}}
+</body>
+
+</html>

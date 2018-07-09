@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script>
+        const app = angular.module("myapp", []);
+        app.run(() => {
+            console.log("I am in Run...");
+        })
+        app.config(() => {
+            console.log("I am in  Config");
+        })
+        app.controller("myctrl", ($scope) => {
+            var p1 = angular.element(document.querySelector("#p1"));
+            console.log("P1 is ", p1);
+            console.log("P1 Value is ", p1[0].innerHTML);
+            console.log("I am in Controller....")
+            $scope.$on("mychildevent", (event, data) => {
+                console.log("Event is ", event);
+                $scope.mydata = data.msg;
+            })
+            $scope.sendIt = () => {
+                $scope.$broadcast('hellolisteners', {
+                    message: 'Hello Child I am Parent'
+                });
+            }
+
+        })
+        app.controller("myctrl2", ($scope) => {
+            $scope.$on('hellolisteners', (event, data) => {
+                $scope.result = data.message;
+
+            });
+        })
+        app.controller("myctrl3", ($scope) => {
+            $scope.$on('hellolisteners', (event, data) => {
+                $scope.result2 = data.message;
+
+            });
+        })
+        app.controller("myctrl4", ($scope) => {
+            $scope.callMe = () => {
+                $scope.$emit('mychildevent', {
+                    msg: 'Hello Parent I am Child'
+                });
+            }
+        })
+    </script>
+</head>
+
+<body ng-app="myapp">
+    <p id="p1">Hello How are You</p>
+    <div ng-controller="myctrl">
+        Data is::: {{mydata}}
+        <br>
+        <button ng-click="sendIt()">BroadCast</button>
+        <hr>
+        <div ng-controller="myctrl2">
+            Data is {{result}}
+        </div>
+        <hr>
+        <div ng-controller="myctrl3">
+            Data is {{result2}}
+        </div>
+        <hr>
+        <div ng-controller="myctrl4">
+            <button ng-click="callMe()">Call Me</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
