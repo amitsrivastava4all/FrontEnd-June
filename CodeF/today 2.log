@@ -1,0 +1,37 @@
+const query = new URLSearchParams("?price=9000&brand=Puma");
+undefined
+query;
+URLSearchParams {}
+query.entries();
+Iterator {}
+for (let param of query.entries()) {
+       value +=param;
+    }
+VM90:2 Uncaught ReferenceError: value is not defined
+    at <anonymous>:2:8
+(anonymous) @ VM90:2
+let value = "";
+for (let param of query.entries()) {
+       value +=param;
+    }
+"price,9000brand,Puma"
+let value = "";
+for (let param of query.entries()) {
+       console.log("Params is ",param);
+    }
+VM256:1 Uncaught SyntaxError: Identifier 'value' has already been declared
+    at <anonymous>:1:1
+(anonymous) @ VM256:1
+
+for (let param of query.entries()) {
+       console.log("Params is ",param);
+    }
+VM265:3 Params is  (2) ["price", "9000"]
+VM265:3 Params is  (2) ["brand", "Puma"]
+undefined
+var str = "?price=9000&brand=Puma";
+undefined
+var p = str.split("&");
+undefined
+p;
+(2) ["?price=9000", "brand=Puma"]
