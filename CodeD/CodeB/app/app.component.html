@@ -1,0 +1,16 @@
+<h1 [class]="myclass">{{title}}</h1>
+<button (click)="showHide()">Show Hide</button>
+
+<p [innerHTML]="title"></p>
+<div [hidden]="flag">
+    Show Me
+</div>
+<p>Counter is {{counter}}</p>
+<input type="text" placeholder="Type Name" (input)="takeInput($event)">
+<hr> Fruits are
+<ul>
+    <li *ngFor="let fruit of fruits">
+        <i *ngIf="fruit=='Apple'">{{fruit}}</i>
+        <b *ngIf="fruit!='Apple'">{{fruit}}</b>
+    </li>
+</ul>
