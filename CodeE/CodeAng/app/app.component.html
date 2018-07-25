@@ -1,0 +1,42 @@
+<h1 [class]="myclass">{{title|prefix:'HCL':'TCS'}}</h1>
+prefix(title)
+<button (click)="showHide()">Show Hide</button>
+
+<app-child (parentoutput)="takeValueFromChild($event)" [myvalue]="title"></app-child>
+<br>
+<app-child2></app-child2>
+
+
+<p [innerHTML]="title"></p>
+<div [hidden]="flag">
+    Show Me
+</div>
+<div *ngIf="counter==5;then login else logout">
+
+</div>
+
+<input type="text" #firstnumber placeholder="Type First Number">
+<input type="text" #secondnumber placeholder="Type Second Numbe">
+<button (click)="add(firstnumber.value,secondnumber.value)">Add</button>
+<p>Sum is {{sum|currency:'INR':true}}</p>
+
+<ng-template #logout>
+    <div>
+        <button>Logout</button>
+    </div>
+</ng-template>
+<ng-template #login>
+    <div>
+        <button>Login</button>
+    </div>
+</ng-template>
+
+<p [ngStyle]="{'background-color':counter>5?'red':'green'}">Counter is {{counter}}</p>
+<input type="text" placeholder="Type Name" (input)="takeInput($event)">
+<hr> Fruits are
+<ul>
+    <li *ngFor="let fruit of fruits;let i=index">
+        <i *ngIf="fruit=='Apple'" [ngClass]="{'orange':fruit=='Apple','green':fruit=='Orange'}">{{i+1}} &nbsp;{{fruit}}</i>
+        <b *ngIf="fruit!='Apple'" [ngClass]="{'orange':fruit=='Apple','green':fruit=='Orange'}">{{i+1}} &nbsp;{{fruit}}</b>
+        < /li>
+</ul>
