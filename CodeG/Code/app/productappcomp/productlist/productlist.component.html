@@ -1,0 +1,15 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of list|orderby">
+            <app-product [item]="item"></app-product>
+        </tr>
+    </tbody>
+</table>
