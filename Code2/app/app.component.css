@@ -1,0 +1,9 @@
+.active {
+    color: orange;
+    font-weight: bold;
+}
+
+li {
+    display: inline;
+    padding: 20px;
+}

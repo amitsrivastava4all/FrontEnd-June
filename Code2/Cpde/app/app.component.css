@@ -1,0 +1,12 @@
+li {
+    display: inline;
+    padding: 10px;
+}
+
+input.ng-invalid {
+    border-color: red;
+}
+
+input.ng-valid {
+    border-color: green;
+}

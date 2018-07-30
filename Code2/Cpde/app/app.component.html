@@ -1,0 +1,31 @@
+ Message is {{title}}
+<!-- <div>
+    <form #form="ngForm" (ngSubmit)="submitIt(form)" novalidate>
+        <input #uid="ngModel" name="uname" ngModel required pattern="[a-z]{3,10}" type="text" placeholder="Type Userid Here">
+        <br> Pristine {{uid.pristine}}
+        <br> Touched {{uid.touched}}
+        <br> Untouched {{uid.untouched}}
+        <br> Dirty {{uid.dirty}}
+        <br> Valid {{uid.valid}}
+        <br> Invalid {{uid.invalid}}
+        <br> Error {{uid.errors|json}}
+        <span *ngIf="uid.pristine && uid.touched">Userid Can't Be Empty</span>
+        <span *ngIf="uid.dirty && uid.invalid">Userid is in B/w 3 to 10 Alpha Chars</span>
+        <button type="submit">Register</button>
+        <!-- <button (click)="clearAll()">Clear</button> -->
+    <!--</form>
+
+</div> -->
+<h1>Routing Basics </h1>
+<ul>
+    <li><a routerLink=""> Home</a></li>
+    <li><a routerLink="/about">About</a></li>
+    <li><a routerLink="/news">News</a></li>
+    <li><a routerLink="/shop">Shop</a></li>
+
+</ul>
+
+<fieldset>
+    <legend>Output</legend>
+    <router-outlet></router-outlet>
+</fieldset> 
