@@ -1,0 +1,21 @@
+.error {
+    color: red;
+    font-style: italic;
+}
+
+input.ng-invalid {
+    color: red;
+    border-width: 2px;
+    border-style: solid;
+}
+
+input.ng-valid {
+    color: green;
+    border-width: 2px;
+    border-style: solid;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}

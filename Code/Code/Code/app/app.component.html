@@ -1,0 +1,17 @@
+<h1>I18n Demo</h1>
+<app-test1></app-test1>
+<div>
+    <!-- translation: translation pipe -->
+    <h1>{{ 'demo.title' | translate }}</h1>
+
+    <!-- translation: directive (key as attribute)-->
+    <p [translate]="'demo.text'"></p>
+
+    <!-- translation: directive (key as content of element) -->
+    <p translate>demo.text</p>
+</div>
+
+Switching Language on Runtime.
+<button (click)="useLanguage('en')">english</button>
+<button (click)="useLanguage('fr')">French</button>
+<button (click)="useLanguage('hi')">hindi</button>

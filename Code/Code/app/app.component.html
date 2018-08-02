@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Angular CSS3 Animations </h1>
+            <button class="btn btn-primary" (click)="doAnimation()">Do Animation</button>
+
+            <hr>
+            <div style="width: 100px; height: 100px" [@divAnimation]="state">
+                <h1>Hello</h1>
+            </div>
+            <br>
+
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <input type="text" #itemName>
+            <button class="btn btn-primary" (click)="addItem(itemName.value)">Add Item!</button>
+            <hr>
+            <ul class="list-group">
+                <li class="list-group-item" (click)="deleteItem(item)" [@list1] *ngFor="let item of list">
+                    {{ item }}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="list-group">
+                <li class="list-group-item" (click)="onDelete(item)" [@list2] *ngFor="let item of list">
+                    {{ item }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- <button (click)="fetch()">Fetching Data From Server</button>
+
+<ul>
+    <li *ngFor="let obj of model">
+        {{obj.id}} {{obj.name}} {{obj.price}} <img src="{{obj.url}}">
+    </li>
+</ul> -->

@@ -1,0 +1,58 @@
+<div>
+
+    <input type="text" placeholder="Type Name" [(ngModel)]="myname"> Name is {{myname}}
+
+    <form #userForm="ngForm" (submit)="registerIt(userForm)" novalidate>
+
+        <input #uidname=ngModel pattern="[a-z]{3,6}" type="text" name="uname" [(ngModel)]="userInfo.userName" required placeholder="Type Name Here">
+        <br> INVALID {{uidname.invalid}}<br> VALID {{uidname.valid}}
+        <br>Pristine {{uidname.pristine}} <br> Dirty {{uidname.dirty}}
+        <br>Touched {{uidname.touched}} <br> UnTouched {{uidname.untouched}}
+        <br>Error {{uidname.errors|json}}
+        <br>
+        <span class="error" *ngIf="uidname.touched  && uidname.invalid && uidname.errors['required']">UserName Can't Be Blank.....</span>
+        <span class="error" *ngIf="uidname.touched && uidname.dirty && uidname.invalid && uidname.errors['pattern']  ">UserName Must be B/w 3 to 5 Character Long</span>
+        <input type="email" name="email" [(ngModel)]="userInfo.email" required placeholder="Type Email Here">
+        <input type="text" name="pname" [(ngModel)]="userInfo.productNumber" required title="Invalid Product No" placeholder="Type Product No" pattern="[a-z]{5,10}">
+        <button type="submit">Register It</button>
+    </form>
+    FORM DATA IS {{userInfo|json}}
+</div>
+
+
+
+<button (click)="loadFromLocal()">Local Storage Demo {{counter}}</button>
+
+
+
+
+<div *ngIf="title; then logout else login"></div>
+
+<ng-template #login>Please login to continue.</ng-template>
+<ng-template #logout>Hi Gary, <button>Logout now</button>.</ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<hr>
+<button class="btn btn-success" (click)="loadProducts()">Load Products</button>
+<button class="btn btn-primary" (click)="loadProducts2()">Load Products Observable</button>
+<ul>
+    <li *ngFor="let product of productArray">
+        {{product.id}} {{product.name}} {{product.price}}
+        <img src="{{product.url}}">
+
+    </li>
+</ul> -->

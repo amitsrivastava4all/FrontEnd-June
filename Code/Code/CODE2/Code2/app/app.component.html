@@ -1,0 +1,46 @@
+<div class="container">
+    <form (submit)="doRegister()" [formGroup]="registerForm">
+        <h1>Reactive Form Validation</h1>
+        <div formGroupName="userinfo">
+            <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" formControlName="name" placeholder="Type Name Here" class="form-control">
+                <span class="alert-info" *ngIf="registerForm.get('userinfo.name').touched && registerForm.get('userinfo.name').pristine ">Name can't be Blank</span>
+                <span class="alert-info" *ngIf="registerForm.get('userinfo.name').dirty && registerForm.get('userinfo.name').invalid ">Name Only b/w 3 to 10 chars </span>
+            </div>
+            <div class="form-group">
+                <label for="">UserName</label>
+                <!-- <label formControlName="userlbl"></label> -->
+                <input formControlName="username" type="text" class="form-control" placeholder="Type UserName Here">
+                <span class="alert-danger" *ngIf="registerForm.get('userinfo.username').touched
+                 && registerForm.get('userinfo.username').pristine && registerForm.get('userinfo.username').invalid">
+                 {{message}}</span>
+                <span class="alert-danger" *ngIf="registerForm.get('userinfo.username').errors['blackListed']">UserName Is BlackListed !</span>
+            </div>
+            <div class="form-group">
+                <label for="">Email</label>
+                <input formControlName="email" type="email" class="form-control" placeholder="Type UserName Here">
+
+                <span class="alert-danger" *ngIf="registerForm.get('userinfo.email').invalid && registerForm.get('userinfo.email').errors['emailBlackListed']">BlackListed Email </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">Remarks</label>
+            <textarea formControlName="remarks" rows="10" cols="20"></textarea>
+        </div>
+
+        <div formArrayName="address" class="form-group">
+            <button (click)="addAddress()">Add Address</button>
+            <ul>
+                <li *ngFor="let address of registerForm.get('address').controls; let i=index">
+                    <input type="text" [formControlName]="i">
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Register</button>
+        </div>
+    </form>
+</div>
